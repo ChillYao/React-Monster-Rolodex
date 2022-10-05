@@ -1,16 +1,31 @@
-import React from 'react';
+import React,{ChangeEvent} from 'react';
 import './search-box.styles.css';
 
-interface ISearchBoxProps extends IChnageHandlerProps{
+type SearchBoxProps = {
     className: string;
-    placeholder?: string|null;
+    placeholder?: string;
+    onChangeHandler: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
-interface IChnageHandlerProps{
-    onChangeHandler: (a:string) => void
+type CanadianAddress={
+    street: string;
+    province: string;
 }
 
-const SearchBox = ({ className, placeholder, onChangeHandler }:ISearchBoxProps) => {
+type USAAddress = {
+    street: string;
+    state: string;
+}
+
+type NorthAmericanAddress = CanadianAddress | USAAddress;
+
+const Address:NorthAmericanAddress = {
+    street: "sdd",
+    state: "sdd",
+    province:"dss",
+};
+
+const SearchBox = ({ className, placeholder, onChangeHandler }:SearchBoxProps) => {
     return (
         <input
             className={className}
