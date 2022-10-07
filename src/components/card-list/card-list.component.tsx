@@ -7,8 +7,7 @@ type CardListProps = {
   filteredMonsters: Monster[];
 };
 
-const CardList = (props: CardListProps) => {
-  const { filteredMonsters } = props;
+const CardList = ({ filteredMonsters }: CardListProps) => {
   return (
     <div className="card-list">
       {filteredMonsters.map((monster) => {
